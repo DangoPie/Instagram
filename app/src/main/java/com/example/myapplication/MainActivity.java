@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCaptureImage;
     private ImageView ivPostImage;
     private Button btnSubmit;
+    private Button btnSignOut;
     private File photoFile;
     public String photoFileName = "photo.jpg";
     @Override
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
+        btnSignOut = findViewById(R.id.btnSignOut);
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //queryPosts();
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,10 +73,26 @@ public class MainActivity extends AppCompatActivity {
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(description,currentUser, photoFile);
+                Toast.makeText(MainActivity.this, "posted successfully!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser.logOut();
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                goLoginActivity();
+            }
+        });
+
     }
 
+    private void goLoginActivity() {
+        Intent i = new Intent(this,LoginActivity.class);
+        startActivity(i);
+        finish();
+    }
     public void onLaunchCamera() {
         // create Intent to take a picture and return control to the calling application
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

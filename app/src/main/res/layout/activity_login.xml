@@ -15,6 +15,7 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName" />
+
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
@@ -29,4 +30,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login" />
+
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:insetRight="0dp"
+        android:text="Sign Up" />
 </LinearLayout>
