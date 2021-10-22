@@ -38,12 +38,14 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        app:backgroundTint ="#2597f7"
+        android:text="Log In" />
 
     <Button
         android:id="@+id/btnSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:backgroundTint ="#4fc43a"
         android:insetRight="0dp"
         android:text="Sign Up" />
 </LinearLayout>
